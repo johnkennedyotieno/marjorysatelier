@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marjory's Atelier | Bespoke African Artistry</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-purple: #8e6ba6;
+            --brand-black: #000000;
+            --brand-white: #ffffff;
+            --soft-gray: #121212;
+            --whatsapp-green: #25D366;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            line-height: 1.6;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            background: rgba(0,0,0,0.95);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+
+        .logo-container img { height: 50px; display: block; }
+
+        .social-links a {
+            color: var(--brand-white);
+            margin-left: 15px;
+            font-size: 1.3rem;
+            transition: 0.3s;
+        }
+        .social-links a:hover { color: var(--brand-purple); }
+
+        .hero {
+            height: 40vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('img1.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 2.5rem; letter-spacing: 3px; }
+        .hero p { color: var(--brand-purple); font-weight: 600; text-transform: uppercase; letter-spacing: 2px; font-size: 0.9rem; }
+
+        .catalogue-container { padding: 50px 5%; }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: var(--soft-gray);
+            border-radius: 4px;
+            overflow: hidden;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+        .product-card:hover { border-color: var(--brand-purple); transform: translateY(-5px); }
+
+        .product-image {
+            width: 100%;
+            height: 450px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .product-info { padding: 20px; text-align: center; }
+        .product-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; margin-bottom: 5px; }
+        .product-variant { font-size: 0.8rem; color: #888; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        .product-price { color: var(--brand-purple); font-weight: bold; font-size: 1.2rem; margin-bottom: 15px; }
+
+        .order-btn {
+            background-color: transparent;
+            color: var(--whatsapp-green);
+            text-decoration: none;
+            padding: 10px;
+            border: 1px solid var(--whatsapp-green);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+        .order-btn:hover { background-color: var(--whatsapp-green); color: white; }
+
+        footer { padding: 40px; text-align: center; font-size: 0.8rem; opacity: 0.5; }
+
+        @media (max-width: 600px) { .product-image { height: 400px; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo-container">
+            <img src="logo.png" alt="Marjory's Atelier">
+        </div>
+        <div class="social-links">
+            <a href="https://instagram.com/marjorys.atelier" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>REBEL COLLECTION</h1>
+        <p>Bespoke African Craftsmanship</p>
+    </header>
+
+    <main class="catalogue-container">
+        <div id="product-grid" class="product-grid">
+            <!-- Loaded by JavaScript -->
+        </div>
+    </main>
+
+    <footer>
+        &copy; 2025 Marjory's Atelier | Nairobi, Kenya
+    </footer>
+
+    <script>
+        const WHATSAPP = "254711789266";
+        
+        // This is your monthly update section
+        const CATALOGUE = [
+            { name: "REBEL", variant: "Hell Raiser", price: "6,000", img: "img1.jpg" },
+            { name: "REBEL", variant: "Hell Raiser", price: "6,000", img: "img2.jpg" },
+            { name: "REBEL", variant: "Hell Raiser", price: "6,000", img: "img3.jpg" },
+            { name: "REBEL", variant: "Hell Raiser", price: "6,000", img: "img4.jpg" },
+            { name: "REBEL", variant: "Powerpuff", price: "6,000", img: "img5.jpg" },
+            { name: "Rose Pearl", variant: "Classic White", price: "4,800", img: "img6.jpg" },
+            { name: "REBEL", variant: "Powerpuff", price: "6,000", img: "img7.jpg" },
+            { name: "Rose Pearl", variant: "Classic White", price: "4,800", img: "img8.jpg" },
+            { name: "Rose Pearl", variant: "Classic White", price: "4,800", img: "img9.jpg" }
+        ];
+
+        function init() {
+            const grid = document.getElementById('product-grid');
+            CATALOGUE.forEach(item => {
+                const text = encodeURIComponent(`Hello Marjory's Atelier! I'm interested in the ${item.name} bag - ${item.variant} variant (KSh ${item.price}).`);
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-image" style="background-image: url('${item.img}')"></div>
+                        <div class="product-info">
+                            <span class="product-variant">${item.variant}</span>
+                            <h3 class="product-name">${item.name}</h3>
+                            <p class="product-price">KSh ${item.price}</p>
+                            <a href="https://wa.me/${WHATSAPP}?text=${text}" target="_blank" class="order-btn">
+                                <i class="fab fa-whatsapp"></i> INQUIRE TO ORDER
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+        window.onload = init;
+    </script>
+</body>
+</html>
