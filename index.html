@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marjory's Atelier | Bespoke African Artistry</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-purple: #8e6ba6;
+            --brand-black: #000000;
+            --brand-white: #ffffff;
+            --soft-gray: #111111;
+            --whatsapp-green: #25D366;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(0,0,0,0.95);
+            position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid #222;
+        }
+        .logo img { height: 50px; background: #222; border-radius: 4px; } /* Fallback background */
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--brand-purple); }
+
+        /* Hero */
+        .hero {
+            height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img1.jpg') center/cover;
+            padding: 0 20px;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { color: var(--brand-purple); font-weight: 600; letter-spacing: 4px; }
+
+        /* Sections */
+        section { padding: 80px 10%; border-bottom: 1px solid #111; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; width: 50px; height: 2px; background: var(--brand-purple); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        /* About Us */
+        .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .about-text p { margin-bottom: 20px; color: #ccc; }
+        .brand-pillars { display: grid; grid-template-columns: 1fr; gap: 15px; }
+        .pillar { background: var(--soft-gray); padding: 15px; border-left: 3px solid var(--brand-purple); }
+        .pillar h3 { font-size: 0.9rem; color: var(--brand-purple); margin-bottom: 5px; }
+
+        /* Our Team */
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; text-align: center; }
+        .team-member img { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid var(--brand-purple); background: #222; }
+        .team-member h3 { font-size: 1.1rem; }
+        .team-member span { color: var(--brand-purple); font-size: 0.8rem; font-weight: 600; }
+
+        /* Boutique */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .product-card { background: var(--soft-gray); border: 1px solid #222; transition: 0.3s; }
+        .product-card:hover { border-color: var(--brand-purple); transform: translateY(-5px); }
+        .product-img { width: 100%; height: 400px; background-size: cover; background-position: center; background-color: #222; }
+        .product-info { padding: 20px; text-align: center; }
+        .product-price { color: var(--brand-purple); font-weight: bold; font-size: 1.2rem; margin: 10px 0; }
+        .order-btn {
+            background: transparent; color: var(--whatsapp-green); border: 1px solid var(--whatsapp-green);
+            padding: 10px; display: flex; align-items: center; justify-content: center; gap: 8px;
+            text-decoration: none; font-weight: 600; transition: 0.3s; border-radius: 4px; font-size: 0.9rem;
+        }
+        .order-btn:hover { background: var(--whatsapp-green); color: white; }
+
+        /* Contact Us */
+        .contact-content { text-align: center; }
+        .social-icons { margin: 20px 0; }
+        .social-icons a { font-size: 1.8rem; color: white; margin: 0 15px; transition: 0.3s; }
+        .social-icons a:hover { color: var(--brand-purple); }
+        .contact-info { font-size: 1rem; color: #ccc; }
+        .contact-info div { margin: 10px 0; }
+
+        footer { padding: 40px; text-align: center; background: #050505; color: #444; font-size: 0.75rem; }
+
+        @media (max-width: 800px) { .about-content { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><img src="logo.png" alt="Marjory's Atelier"></div>
+        <div class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="#team">Our Team</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>MARJORY'S ATELIER</h1>
+        <p>AUTHENTIC • BESPOKE • TIMELESS</p>
+    </header>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about">
+        <div class="section-title"><h2>About Us</h2></div>
+        <div class="about-content">
+            <div class="about-text">
+                <p>Our pieces are a celebration of African craftsmanship, confidence, and culture. Every item is designed to speak for you before you ever say a word.</p>
+                <p>Blending timeless artistry with modern elegance, each piece is a link through the generations. We offer elegant, lasting pieces while driving meaningful social and economic change in our community.</p>
+                <p>We exist to empower young artisans by nurturing their creativity and refining their skills. With every creation, we’re building a legacy where beauty uplifts and craftsmanship endures.</p>
+            </div>
+            <div class="brand-pillars">
+                <div class="pillar"><h3>CREATIVITY</h3><p style="font-size: 0.75rem;">Bespoke accessories that blend beauty, culture, and sustainability.</p></div>
+                <div class="pillar"><h3>COMMUNITY</h3><p style="font-size: 0.75rem;">Provision of opportunities for financial development to artisans.</p></div>
+                <div class="pillar"><h3>LEGACY</h3><p style="font-size: 0.75rem;">Connecting people to themselves and their identity as Africans.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM SECTION -->
+    <section id="team" style="background: #050505;">
+        <div class="section-title"><h2>Our Team</h2></div>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="marjory.jpg" alt="Marjory Atieno">
+                <h3>Marjory Atieno</h3>
+                <span>Founder & Creative Director</span>
+            </div>
+            <div class="team-member">
+                <img src="kennedy.jpg" alt="Otieno John Kennedy">
+                <h3>Otieno John Kennedy</h3>
+                <span>Branding & Communication</span>
+            </div>
+            <div class="team-member">
+                <img src="kedrine.jpg" alt="Kedrine Obai">
+                <h3>Kedrine Obai</h3>
+                <span>Apprentice</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOUTIQUE SECTION -->
+    <section id="boutique">
+        <div class="section-title"><h2>The Boutique</h2><p style="color: #666; font-size: 0.9rem; margin-top: -10px;">The Rebel & Rose Pearl Collections</p></div>
+        <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section id="contact" style="background: #050505;">
+        <div class="section-title"><h2>Contact Us</h2></div>
+        <div class="contact-content">
+            <div class="social-icons">
+                <a href="https://instagram.com/marjorys.atelier" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@marjorysatelier" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@marjorysatelier" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="contact-info">
+                <div><i class="fas fa-envelope"></i> marjoryatieno@gmail.com</div>
+                <div><i class="fas fa-phone"></i> +254 711 789 266</div>
+                <div><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Marjory's Atelier. Positioning African Artistry on the Global Luxury Stage.</p>
+    </footer>
+
+    <script>
+        const WHATSAPP = "254711789266";
+        const CATALOGUE = [
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img1.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img2.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img3.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img4.jpg" },
+            { name: "REBEL", var: "Powerpuff", price: "6,000", img: "img5.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img6.jpg" },
+            { name: "REBEL", var: "Powerpuff", price: "6,000", img: "img7.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img8.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img9.jpg" }
+        ];
+
+        function load() {
+            const grid = document.getElementById('product-grid');
+            CATALOGUE.forEach(item => {
+                const msg = encodeURIComponent(`Hello Marjory's Atelier! I'm interested in the ${item.name} (${item.var}) priced at KSh ${item.price}.`);
+                grid.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('${item.img}')"></div>
+                        <div class="product-info">
+                            <span style="color:#888; font-size:0.7rem; text-transform:uppercase;">${item.var}</span>
+                            <h3>${item.name}</h3>
+                            <p class="product-price">KSh ${item.price}</p>
+                            <a href="https://wa.me/${WHATSAPP}?text=${msg}" target="_blank" class="order-btn">
+                                <i class="fab fa-whatsapp"></i> INQUIRE TO ORDER
+                            </a>
+                        </div>
+                    </div>`;
+            });
+        }
+        window.onload = load;
+    </script>
+</body>
+</html>
