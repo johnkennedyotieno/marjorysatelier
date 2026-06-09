@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marjory's Atelier | Bespoke African Artistry</title>
+    
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-purple: #8e6ba6;
+            --brand-black: #000000;
+            --brand-white: #ffffff;
+            --soft-gray: #111111;
+            --wa-green: #25D366;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { font-family: 'Montserrat', sans-serif; background: var(--brand-black); color: var(--brand-white); line-height: 1.6; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 2px; }
+
+        /* Navigation */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 5%; background: rgba(0,0,0,0.95);
+            position: sticky; top: 0; z-index: 100; border-bottom: 1px solid #222;
+        }
+        .logo img { height: 50px; }
+        .nav-links a { color: white; text-decoration: none; margin-left: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; }
+        .nav-links a:hover { color: var(--brand-purple); }
+
+        /* Hero */
+        .hero {
+            height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img1.jpg') center/cover;
+            padding: 0 20px; border-bottom: 2px solid var(--brand-purple);
+        }
+        .hero h1 { font-size: clamp(2rem, 6vw, 4rem); margin-bottom: 10px; }
+        .hero p { color: var(--brand-purple); font-weight: 600; letter-spacing: 4px; font-size: 0.9rem; }
+
+        /* Sections */
+        section { padding: 80px 10%; border-bottom: 1px solid #111; clear: both; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 2.2rem; position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-title h2::after { content: ''; width: 50px; height: 2px; background: var(--brand-purple); position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); }
+
+        /* About Us */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+        .about-text p { margin-bottom: 20px; color: #ccc; }
+        .pillar { background: var(--soft-gray); padding: 20px; margin-bottom: 15px; border-left: 4px solid var(--brand-purple); }
+        .pillar h3 { font-size: 0.9rem; color: var(--brand-purple); margin-bottom: 5px; }
+
+        /* Our Team (Updated to 2 members) */
+        .team-grid { 
+            display: flex; 
+            justify-content: center; 
+            flex-wrap: wrap; 
+            gap: 60px; 
+            text-align: center; 
+        }
+        .team-member { max-width: 250px; }
+        .team-member img { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; margin-bottom: 15px; border: 2px solid var(--brand-purple); }
+        .team-member h3 { font-size: 1.1rem; }
+        .team-member span { color: var(--brand-purple); font-size: 0.8rem; font-weight: 600; display: block; }
+
+        /* Boutique Grid */
+        .boutique-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+        .product-card { background: var(--soft-gray); cursor: pointer; transition: 0.3s; border: 1px solid #222; overflow: hidden; }
+        .product-card:hover { border-color: var(--brand-purple); transform: translateY(-5px); }
+        .hero-img { width: 100%; height: 400px; object-fit: cover; display: block; }
+        .product-info { padding: 20px; text-align: center; }
+        .price { color: var(--brand-purple); font-weight: bold; font-size: 1.2rem; }
+
+        /* MODAL OVERLAY */
+        #modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.98); display: none; justify-content: center; align-items: center; z-index: 2000;
+        }
+        .modal-content { width: 95%; max-width: 500px; text-align: center; position: relative; padding: 20px; }
+        
+        .carousel-viewport { position: relative; width: 100%; height: 450px; margin-bottom: 20px; background: #000; display: flex; align-items: center; overflow: hidden; }
+        .carousel-img { width: 100%; height: 100%; object-fit: contain; display: none; }
+        .carousel-img.active { display: block; }
+        
+        .nav-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.6); color: white; border: none; padding: 15px; cursor: pointer; z-index: 10;
+        }
+        .nav-btn:hover { background: var(--brand-purple); }
+        .prev { left: 0; } .next { right: 0; }
+
+        .btn-wa {
+            background: var(--wa-green); color: white; padding: 15px;
+            display: block; text-decoration: none; font-weight: bold; border-radius: 4px; margin-top: 10px;
+        }
+        .btn-close {
+            background: transparent; color: #888; padding: 10px; display: inline-block;
+            text-decoration: underline; margin-top: 15px; cursor: pointer; font-size: 0.8rem;
+        }
+
+        /* Contact Us */
+        .socials { margin-bottom: 30px; text-align: center; }
+        .socials a { font-size: 2rem; margin: 0 15px; color: white; }
+
+        @media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><img src="logo.png" alt="Marjory's Atelier"></div>
+        <div class="nav-links">
+            <a href="#about">About Us</a>
+            <a href="#team">Our Team</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>MARJORY'S ATELIER</h1>
+        <p>Bespoke African Artistry</p>
+    </header>
+
+    <!-- ABOUT US -->
+    <section id="about">
+        <div class="section-title"><h2>About Us</h2></div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Our pieces are a celebration of African craftsmanship, confidence, and culture. Every item is designed to speak for you before you ever say a word.</p>
+                <p>Blending timeless artistry with modern elegance, each piece is a link through the generations. We exist to empower young artisans by nurturing their creativity, refining their skills and creating economic opportunities that transform their lives.</p>
+                <p>Positioning African artistry on the global luxury stage, we drive meaningful social and economic change through every creation.</p>
+            </div>
+            <div class="pillars">
+                <div class="pillar"><h3>CREATIVITY</h3><p style="font-size: 0.75rem;">Bespoke accessories that blend beauty, culture, and sustainability.</p></div>
+                <div class="pillar"><h3>COMMUNITY</h3><p style="font-size: 0.75rem;">Training and provision of opportunities for financial development to artisans.</p></div>
+                <div class="pillar"><h3>LEGACY</h3><p style="font-size: 0.75rem;">Connecting people to themselves and their identity as Africans.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM (Exact File Names) -->
+    <section id="team" style="background: #050505;">
+        <div class="section-title"><h2>Our Team</h2></div>
+        <div class="team-grid">
+            <div class="team-member">
+                <img src="marjory.jpg" alt="Marjory Atieno">
+                <h3>Marjory Atieno</h3><span>Founder & Creative Director</span>
+            </div>
+            <div class="team-member">
+                <img src="kennedy.jpg" alt="Otieno John Kennedy">
+                <h3>Otieno John Kennedy</h3><span>Branding & Communication</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOUTIQUE -->
+    <section id="boutique">
+        <div class="section-title"><h2>The Boutique</h2><p style="color:#666; font-size: 0.9rem;">Click an item to explore and order</p></div>
+        <div id="product-list" class="boutique-grid"></div>
+    </section>
+
+    <!-- CONTACT US -->
+    <section id="contact" style="background: #050505;">
+        <div class="section-title"><h2>Contact Us</h2></div>
+        <div class="socials">
+            <a href="https://instagram.com/marjorys.atelier" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <div style="text-align: center; color: #888;">
+            <p>Nairobi, Kenya</p>
+            <p>marjoryatieno@gmail.com</p>
+            <p>+254 711 789 266</p>
+        </div>
+    </section>
+
+    <!-- POPUP MODAL -->
+    <div id="modal-overlay" onclick="handleOutsideClick(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="carousel-viewport">
+                <button class="nav-btn prev" onclick="changeSlide(-1)">&#10094;</button>
+                <img id="slide1" class="carousel-img active">
+                <img id="slide2" class="carousel-img">
+                <img id="slide3" class="carousel-img">
+                <button class="nav-btn next" onclick="changeSlide(1)">&#10095;</button>
+            </div>
+            <h3 id="modal-title"></h3>
+            <p id="modal-price" class="price" style="margin: 10px 0;"></p>
+            
+            <a href="#" id="wa-link" target="_blank" class="btn-wa">
+                <i class="fab fa-whatsapp"></i> INQUIRE TO ORDER
+            </a>
+            
+            <div class="btn-close" onclick="closeModal()">Back to Collection</div>
+        </div>
+    </div>
+
+    <footer>&copy; 2025 Marjory's Atelier.</footer>
+
+    <script>
+        const WHATSAPP = "254711789266";
+        
+        const ITEMS = [
+            { name: "REBEL: Hell Raiser", price: "6,000", images: ["img1.jpg", "img2.jpg", "img3.jpg"] },
+            { name: "REBEL: Powerpuff", price: "6,000", images: ["img4.jpg", "img5.jpg", "img7.jpg"] },
+            { name: "Rose Pearl", price: "4,800", images: ["img6.jpg", "img8.jpg", "img9.jpg"] }
+        ];
+
+        let activeProduct = null;
+        let slideIndex = 0;
+
+        function renderBoutique() {
+            const container = document.getElementById('product-list');
+            ITEMS.forEach((item, idx) => {
+                container.innerHTML += `
+                    <div class="product-card" onclick="openModal(${idx})">
+                        <img src="${item.images[0]}" class="hero-img">
+                        <div class="product-info">
+                            <h3>${item.name}</h3>
+                            <p class="price">KSh ${item.price}</p>
+                        </div>
+                    </div>`;
+            });
+        }
+
+        function openModal(idx) {
+            activeProduct = ITEMS[idx];
+            slideIndex = 0;
+            document.getElementById('modal-title').innerText = activeProduct.name;
+            document.getElementById('modal-price').innerText = `KSh ${activeProduct.price}`;
+            document.getElementById('slide1').src = activeProduct.images[0];
+            document.getElementById('slide2').src = activeProduct.images[1];
+            document.getElementById('slide3').src = activeProduct.images[2];
+            updateWhatsApp();
+            document.getElementById('modal-overlay').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            showSlide(0);
+        }
+
+        function closeModal() {
+            document.getElementById('modal-overlay').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function handleOutsideClick(e) {
+            if(e.target.id === 'modal-overlay') closeModal();
+        }
+
+        function changeSlide(n) {
+            slideIndex = (slideIndex + n + 3) % 3;
+            showSlide(slideIndex);
+            updateWhatsApp();
+        }
+
+        function showSlide(n) {
+            const slides = document.querySelectorAll('.carousel-img');
+            slides.forEach(s => s.classList.remove('active'));
+            slides[n].classList.add('active');
+        }
+
+        function updateWhatsApp() {
+            const imgPath = window.location.href.split('index.html')[0] + activeProduct.images[slideIndex];
+            const msg = `Hello Marjory's Atelier! I'm interested in the ${activeProduct.name}. 
+Ref: ${imgPath}
+Price: KSh ${activeProduct.price}`;
+            document.getElementById('wa-link').href = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(msg)}`;
+        }
+
+        renderBoutique();
+    </script>
+</body>
+</html>
