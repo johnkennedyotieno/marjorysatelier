@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marjory's Atelier | Bespoke African Artistry</title>
+    
+    <!-- Design Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* BRAND COLORS */
+        :root {
+            --brand-purple: #8e6ba6;
+            --brand-black: #000000;
+            --brand-white: #ffffff;
+            --section-bg: #0a0a0a;
+            --card-bg: #111111;
+            --whatsapp-green: #25D366;
+        }
+
+        /* RESET & BASE STYLES */
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--brand-black);
+            color: var(--brand-white);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; text-transform: uppercase; letter-spacing: 2px; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* NAVIGATION */
+        nav {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 20px 5%; background: rgba(0,0,0,0.95);
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            border-bottom: 1px solid #222;
+        }
+        .logo img { height: 45px; vertical-align: middle; }
+        .nav-links a { margin-left: 25px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .nav-links a:hover { color: var(--brand-purple); }
+
+        /* HERO SECTION */
+        #home {
+            height: 90vh; display: flex; flex-direction: column; justify-content: center; align-items: center;
+            text-align: center; background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('img1.jpg') center/cover;
+            padding: 0 20px; border-bottom: 2px solid var(--brand-purple);
+        }
+        #home h1 { font-size: clamp(2rem, 8vw, 4.5rem); margin-bottom: 10px; }
+        #home p { color: var(--brand-purple); font-weight: 600; letter-spacing: 5px; font-size: 0.9rem; }
+
+        /* GENERAL SECTION STYLING */
+        section { padding: 100px 8%; position: relative; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 2.5rem; display: inline-block; padding-bottom: 15px; border-bottom: 2px solid var(--brand-purple); }
+        .section-header p { margin-top: 15px; color: #888; font-style: italic; }
+
+        /* ABOUT US SECTION */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .about-text p { margin-bottom: 25px; color: #ddd; font-size: 1.05rem; }
+        .pillars { display: grid; grid-template-columns: 1fr; gap: 20px; }
+        .pillar-card { background: var(--card-bg); padding: 25px; border-left: 4px solid var(--brand-purple); }
+        .pillar-card h3 { font-size: 1.1rem; margin-bottom: 10px; color: var(--brand-purple); }
+        .pillar-card p { font-size: 0.85rem; line-height: 1.5; color: #bbb; }
+
+        /* OUR TEAM SECTION */
+        #team { background-color: var(--section-bg); }
+        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; text-align: center; }
+        .team-card img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; border: 3px solid var(--brand-purple); filter: grayscale(30%); }
+        .team-card h3 { font-size: 1.3rem; margin-bottom: 5px; }
+        .team-card span { color: var(--brand-purple); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; }
+
+        /* BOUTIQUE / CATALOGUE SECTION */
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .product-card { background: var(--card-bg); border: 1px solid #222; overflow: hidden; transition: 0.4s ease; }
+        .product-card:hover { border-color: var(--brand-purple); transform: translateY(-10px); }
+        .product-img { width: 100%; height: 450px; background-size: cover; background-position: center; background-color: #1a1a1a; }
+        .product-info { padding: 25px; text-align: center; }
+        .product-info h3 { margin-bottom: 5px; font-size: 1.2rem; }
+        .product-variant { font-size: 0.75rem; color: #777; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 10px; }
+        .product-price { color: var(--brand-purple); font-weight: bold; font-size: 1.4rem; margin-bottom: 20px; }
+        .wa-btn {
+            display: flex; align-items: center; justify-content: center; gap: 10px;
+            background: transparent; color: var(--whatsapp-green); border: 1px solid var(--whatsapp-green);
+            padding: 12px; font-weight: 600; font-size: 0.9rem; border-radius: 5px;
+        }
+        .wa-btn:hover { background: var(--whatsapp-green); color: white; }
+
+        /* CONTACT US SECTION */
+        #contact { background: var(--section-bg); text-align: center; }
+        .contact-wrap { max-width: 800px; margin: 0 auto; }
+        .social-links { margin-bottom: 40px; }
+        .social-links a { font-size: 2.2rem; margin: 0 20px; }
+        .social-links a:hover { color: var(--brand-purple); }
+        .contact-details { font-size: 1.1rem; color: #ccc; }
+        .contact-details p { margin: 10px 0; }
+        .contact-details i { color: var(--brand-purple); margin-right: 10px; width: 25px; }
+
+        /* FOOTER */
+        footer { padding: 40px; text-align: center; border-top: 1px solid #222; color: #444; font-size: 0.8rem; }
+
+        /* MOBILE OPTIMIZATION */
+        @media (max-width: 900px) {
+            .about-grid { grid-template-columns: 1fr; }
+            .nav-links { display: none; } /* Simplified for mobile */
+            section { padding: 80px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="logo">
+            <img src="logo.png" alt="Marjory's Atelier">
+        </div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#team">Our Team</a>
+            <a href="#boutique">Boutique</a>
+            <a href="#contact">Contact Us</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home">
+        <h1>MARJORY'S ATELIER</h1>
+        <p>CREATIVITY • COMMUNITY • LEGACY</p>
+    </header>
+
+    <!-- ABOUT US SECTION -->
+    <section id="about">
+        <div class="section-header">
+            <h2>About Us</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Our pieces are a celebration of African craftsmanship, confidence, and culture. Every item is designed to speak for you before you ever say a word.</p>
+                <p>Blending timeless artistry with modern elegance, each piece is a link through the generations. We exist to empower young artisans by nurturing their creativity, refining their skills and creating economic opportunities that transform their lives.</p>
+                <p>With every creation, we’re building a legacy where beauty uplifts, craftsmanship endures, and empowerment becomes the truest form of luxury.</p>
+            </div>
+            <div class="pillars">
+                <div class="pillar-card">
+                    <h3>CREATIVITY</h3>
+                    <p>We create bespoke accessories that blend beauty, culture, and sustainability. Our creations are a celebration of African heritage.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>COMMUNITY</h3>
+                    <p>Our goal is to empower communities and inspire a legacy of craftsmanship across generations through training and financial development.</p>
+                </div>
+                <div class="pillar-card">
+                    <h3>LEGACY</h3>
+                    <p>We desire to be remembered for quality craftsmanship, timeless design, and a deep connection to African identity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- OUR TEAM SECTION -->
+    <section id="team">
+        <div class="section-header">
+            <h2>Our Team</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card">
+                <img src="marjory.jpg" alt="Marjory Atieno">
+                <h3>Marjory Atieno</h3>
+                <span>Founder & Creative Director</span>
+            </div>
+            <div class="team-card">
+                <img src="kennedy.jpg" alt="Otieno John Kennedy">
+                <h3>Otieno John Kennedy</h3>
+                <span>Branding & Communication</span>
+            </div>
+            <div class="team-card">
+                <img src="kedrine.jpg" alt="Kedrine Obai">
+                <h3>Kedrine Obai</h3>
+                <span>Apprentice</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOUTIQUE SECTION -->
+    <section id="boutique">
+        <div class="section-header">
+            <h2>Boutique</h2>
+            <p>Handcrafted Exclusivity</p>
+        </div>
+        <div id="catalog-container" class="product-grid">
+            <!-- Products Loaded Via JavaScript Below -->
+        </div>
+    </section>
+
+    <!-- CONTACT US SECTION -->
+    <section id="contact">
+        <div class="section-header">
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-wrap">
+            <div class="social-links">
+                <a href="https://instagram.com/marjorys.atelier" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://tiktok.com/@marjorysatelier" target="_blank"><i class="fab fa-tiktok"></i></a>
+                <a href="https://youtube.com/@marjorysatelier" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+            <div class="contact-details">
+                <p><i class="fas fa-envelope"></i> marjoryatieno@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +254 711 789 266</p>
+                <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Marjory's Atelier. Positioning African Artistry on the Global Luxury Stage.</p>
+    </footer>
+
+    <!-- PRODUCT CATALOGUE LOGIC -->
+    <script>
+        const WA_PHONE = "254711789266";
+        
+        // --- MONTHLY DATA UPDATE ---
+        const ITEMS = [
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img1.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img2.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img3.jpg" },
+            { name: "REBEL", var: "Hell Raiser", price: "6,000", img: "img4.jpg" },
+            { name: "REBEL", var: "Powerpuff", price: "6,000", img: "img5.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img6.jpg" },
+            { name: "REBEL", var: "Powerpuff", price: "6,000", img: "img7.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img8.jpg" },
+            { name: "Rose Pearl", var: "Classic White", price: "4,800", img: "img9.jpg" }
+        ];
+
+        function renderProducts() {
+            const container = document.getElementById('catalog-container');
+            ITEMS.forEach(p => {
+                const waMsg = encodeURIComponent(`Hello Marjory's Atelier! I'm interested in the ${p.name} bag (${p.var}) priced at KSh ${p.price}. Is it available?`);
+                
+                container.innerHTML += `
+                    <div class="product-card">
+                        <div class="product-img" style="background-image: url('${p.img}')"></div>
+                        <div class="product-info">
+                            <span class="product-variant">${p.var}</span>
+                            <h3>${p.name}</h3>
+                            <p class="product-price">KSh ${p.price}</p>
+                            <a href="https://wa.me/${WA_PHONE}?text=${waMsg}" target="_blank" class="wa-btn">
+                                <i class="fab fa-whatsapp"></i> INQUIRE VIA WHATSAPP
+                            </a>
+                        </div>
+                    </div>
+                `;
+            });
+        }
+
+        window.onload = renderProducts;
+    </script>
+</body>
+</html>
