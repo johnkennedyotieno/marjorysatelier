@@ -1,0 +1,51 @@
+{
+  "bags": [
+    {
+      "id": 1,
+      "name": "Rebel — Hell Raiser",
+      "tag": "The Rebel Series",
+      "description": "Full-bead bucket bag. Flame gradient heart motif in purple, orange and gold. Purple satin lining with ribbon tassels. Hand-beaded to order.",
+      "price": "KSH 6,000",
+      "images": ["assets/hellraiser-1.png", "assets/hellraiser-2.png"],
+      "whatsapp_text": "Hi Marjory! I'd like to order the Rebel — Hell Raiser bag (KSH 6,000). Could you confirm availability and delivery details?"
+    },
+    {
+      "id": 2,
+      "name": "Rebel — Powerpuff",
+      "tag": "The Rebel Series",
+      "description": "Full-bead bucket bag. Rainbow heart motif in violet, orange and yellow. Purple satin lining with ribbon tassels. Hand-beaded to order.",
+      "price": "KSH 6,000",
+      "images": ["assets/powerpuff-1.png", "assets/powerpuff-2.png"],
+      "whatsapp_text": "Hi Marjory! I'd like to order the Rebel — Powerpuff bag (KSH 6,000). Could you confirm availability and delivery details?"
+    },
+    {
+      "id": 3,
+      "name": "Rose Pearl",
+      "tag": "Signature",
+      "description": "Structured pearl-bead tote. Ivory white with black flower motif and black beaded handles. The everyday bag that never blends in.",
+      "price": "KSH 4,800",
+      "images": ["assets/rosepearl-1.png", "assets/rosepearl-2.png"],
+      "whatsapp_text": "Hi Marjory! I'd like to order the Rose Pearl bag (KSH 4,800). Could you confirm availability and delivery details?"
+    },
+    {
+      "id": 4,
+      "name": "Bespoke Bag",
+      "tag": "Custom Order",
+      "description": "Your vision, our craft. Choose your colours, pattern and size. Every custom piece is a one-of-one made exclusively for you.",
+      "price": "From KSH 4,800",
+      "images": ["assets/rosepearl-1.png"],
+      "whatsapp_text": "Hi Marjory! I'd like to commission a custom bag. Can we discuss what I have in mind?"
+    }
+  ],
+  "wearables": [
+    {
+      "id": 5,
+      "name": "Bespoke Wearable",
+      "tag": "Custom Order",
+      "description": "Festival wear, body chains, statement pieces — all made to your brief. Tell us the occasion, the feeling, the colours. We'll handle the rest.",
+      "price": "From KSH 2,000",
+      "images": ["assets/hellraiser-1.png"],
+      "whatsapp_text": "Hi Marjory! I'd like to commission a custom wearable piece. Can we talk through what I have in mind?"
+    }
+  ]
+}
